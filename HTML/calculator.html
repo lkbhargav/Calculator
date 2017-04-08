@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../CSS/calculator.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row-content col-xs-4"></div>
+        <div class="row row-content col-xs-8">
+            <div>
+                <h2>this is calculator</h2>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td colspan="3"><input type="text" onkeydown="keyPressed(this,event)" id="result"></td>
+                        <td><input type="button" value="=" onclick="calculation($('#result').val())"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="1" onclick="buttonClicked(this)"></td>
+                        <td><input type="button" value="2" onclick="buttonClicked(this)"></td>
+                        <td><input type="button" value="3" onclick="buttonClicked(this)"></td>
+                        <td><input type="button" value="+"></td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="button" value="4" onclick="buttonClicked(this)"></td>
+                        <td><input type="button" value="5" onclick="buttonClicked(this)"></td>
+                        <td><input type="button" value="6" onclick="buttonClicked(this)"></td>
+                        <td><input type="button" value="-"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="7" onclick="buttonClicked(this)"></td>
+                        <td><input type="button" value="8" onclick="buttonClicked(this)"></td>
+                        <td><input type="button" value="9" onclick="buttonClicked(this)"></td>
+                        <td><input type="button" value="*"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="C"></td>
+                        <td><input type="button" value="0" onclick="buttonClicked(this)"></td>
+                        <td><input type="button" value="%"></td>
+                        <td><input type="button" value="/"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+
+    </div>
+
+</body>
+
+</html>
