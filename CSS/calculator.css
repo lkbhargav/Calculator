@@ -1,1 +1,6 @@
 /* Styles that should be applied for HTML pages */
+
+.titleClass {
+    text-align: center;
+    
+}
