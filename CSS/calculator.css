@@ -4,3 +4,11 @@
     text-align: center;
     
 }
+
+p.italic {
+    font-style: italic;
+}
+
+.li {
+    font-family: cursive;
+}
