@@ -12,3 +12,31 @@ p.italic {
 .li {
     font-family: cursive;
 }
+.button{
+    border: none;
+    color: black;
+    /*padding: 16px 20px;*/
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px 2px; 
+    cursor: pointer;
+    width: 65px;
+    height: 65px;
+    font-size: 20px;
+    
+}
+input[type=text]{
+    padding: 16px 5px;
+    margin: 8px 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 225px;
+    outline: none;
+}
+input[type=text]:focus{
+    border: 1px solid blue;
+}
