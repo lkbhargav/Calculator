@@ -21,14 +21,22 @@
             </div>
             <div >
                 <table class="calcBorder">
+                    
                     <tr>
                         <td colspan="4"><p class="calculatorName"><b>CASIO</b></p>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="3"><input type="text" onkeydown="keyPressed(this,event)" id="result"></td>
+                        <td colspan="4"><input type="text" onkeydown="keyPressed(this,event)" id="result"></td>
+                       
+                    </tr>
+                     <tr>
+                        <td><input type="button" class="button" value="AC" onclick="clearKeyPressed()"></td>
+                        <td><input type="button" class="button" value="C" onclick="buttonClicked(this)"></td>
+                        <td><input type="button" class="button" value="()" onclick="buttonClicked(this)"></td>
                         <td><input type="button" class="button" value="=" onclick="calculation($('#result').val())"></td>
                     </tr>
+                
                     <tr>
                         <td><input type="button" class="button" value="1" onclick="buttonClicked(this)"></td>
                         <td><input type="button" class="button" value="2" onclick="buttonClicked(this)"></td>
@@ -49,12 +57,13 @@
                         <td><input type="button" class="button" value="*" onclick="buttonClicked(this)"></td>
                     </tr>
                     <tr>
-                        <td><input type="button" class="button" value="C" onclick="clearKeyPressed()"></td>
+                        <td><input type="button" class="button" value="." onclick="buttonClicked(this)"></td>
                         <td><input type="button" class="button" value="0" onclick="buttonClicked(this)"></td>
                         <td><input type="button" class="button" value="%" onclick="buttonClicked(this)"></td>
                         <td><input type="button" class="button" value="/" onclick="buttonClicked(this)"></td>
                     </tr>
-                </table>
+                    
+                   </table>
             </div>
         </div>
         

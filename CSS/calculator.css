@@ -12,18 +12,7 @@ p.italic {
 .li {
     font-family: cursive;
 }
-.button{
-    color: black;
-    /*padding: 16px 20px;*/
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 2px 2px; 
-    cursor: pointer;
-    width: 65px;
-    height: 65px;
-    font-size: 30px;
-}
+
 input[type=text]{
     padding: 16px 5px;
     margin: 8px 0;
@@ -32,7 +21,7 @@ input[type=text]{
     border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 20px;
-    width: 205px;
+    width: 275px;
     height:65px;
     outline: none;
 }
