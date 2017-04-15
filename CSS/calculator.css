@@ -1,31 +1,72 @@
-/* Styles that should be applied for HTML pages */
-
+.button {
+  outline: none;
+  border-radius: 10px;
+  border: 2px solid darkgray;
+  background-color: lightgreen;
+}
+.button:hover {
+  background-color: #82d682;
+}
+.button:hover:active {
+  background-color: #487748;
+  color: white;
+}
+.calcBorder {
+  padding: 10px;
+  border-radius: 25px;
+  border-collapse: separate;
+  border: 3px solid black;
+  background-color: lightgray;
+}
+.calculatorName {
+  text-align: center;
+  font-size: 35px;
+  letter-spacing: 5px;
+  font-family: 'Spirax', cursive;
+  font-weight: normal;
+}
+.button {
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+  margin: 2px 2px;
+  cursor: pointer;
+  width: 65px;
+  height: 65px;
+  font-size: 30px;
+}
+p {
+  padding: 0px;
+  margin: 0 0 0px;
+}
 .titleClass {
-    text-align: center;
-    
+  text-align: center;
 }
-
 p.italic {
-    font-style: italic;
+  font-style: italic;
 }
-
 .li {
-    font-family: cursive;
+  font-family: cursive;
 }
-
-input[type=text]{
-    padding: 16px 5px;
-    margin: 8px 0;
-    padding-left: 15px;
-    padding-right: 15px;
-    border: 1px solid #ccc;
-    letter-spacing: 1.5px;
-    border-radius: 10px;
-    font-size: 30px;
-    width: 275px;
-    height:65px;
-    outline: none;
+input[type=text] {
+  padding: 16px 5px;
+  margin: 8px 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid #ccc;
+  letter-spacing: 1.5px;
+  border-radius: 10px;
+  font-size: 30px;
+  width: 275px;
+  height: 65px;
+  outline: none;
+  background-color: lightyellow;
+  border: 1.5px solid black;
 }
-input[type=text]:focus{
-    border: 1.5px solid aqua;
+input[type=text]:focus {
+  border: 1.5px solid purple;
+  background-color: #f2f2d5;
 }
