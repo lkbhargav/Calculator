@@ -5,9 +5,12 @@
     border-radius: 10px;
     border: 2px solid darkblue;
     background-color: @buttonBackgroundColor;
-    &:active {
-        background-color: @buttonBackgroundColor / 25;
-        color: white;
+    &:hover {
+        background-color: @buttonBackgroundColor * .9;
+            &:active {
+            background-color: @buttonBackgroundColor * 0.5;
+            color: white;
+        }
     }
 }
 
@@ -34,18 +37,13 @@
     vertical-align: middle;
     text-decoration: none;
     display: inline-block;
+    font-weight: bold;
     margin: 2px 2px; 
     cursor: pointer;
     width: 65px;
     height: 65px;
     font-size: 30px;
 }
-
-.bigbutton {
-    .button;
-    width:135px;
-}
-
 
 p {
     padding: 0px;
