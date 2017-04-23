@@ -6,6 +6,11 @@ function keyPressed(element, e) {
         e.preventDefault();
     }
     
+    if(e.shiftKey && e.keyCode === 57) {
+        e.preventDefault();
+        buttonClicked("<input type='text' value='()' />");
+    }
+    
     if(e.keyCode === 13) {
         calculation(element);
     }
@@ -14,17 +19,17 @@ function keyPressed(element, e) {
 // concantenates the exisiting text field with new key pressed
 function buttonClicked(ele) {
     $("#result").focus();
-    var pos = getCursorPosition("result");
+    let pos = getCursorPosition("result");
     if(pos.start === pos.end) {
         pos = pos.start;
     } else {
         $("#result").val($("#result").val().slice(0,pos.start)+$("#result").val().slice(pos.end,$("#result").val().length));
         pos = pos.start;
     }
-    var calcInput = $("#result").val();
+    let calcInput = $("#result").val();
     
-    var exText = calcInput.slice(0,pos);
-    var reText = calcInput.slice(pos,calcInput.length);
+    let exText = calcInput.slice(0,pos);
+    let reText = calcInput.slice(pos,calcInput.length);
     
     let IsExTextHasStar = true;
     let IsReTextHasStar = true;
@@ -32,14 +37,14 @@ function buttonClicked(ele) {
     // adds * when user selects parenthesis 
     if($(ele).val() === "()") {
         if(exText !== "") {
-            if(exText.charAt(pos-1) !== "*" && exText.charAt(pos-1) !== "+" && exText.charAt(pos-1) !== "-" && exText.charAt(pos-1) !== "/" && exText.charAt(pos-1) !== "(" && exText.charAt(pos-1) !== ")" && exText.charAt(pos-1) !== "%") {
+            if(exText.charAt(pos-1) !== "*" && exText.charAt(pos-1) !== "+" && exText.charAt(pos-1) !== "-" && exText.charAt(pos-1) !== "/" && exText.charAt(pos-1) !== "(" && exText.charAt(pos-1) !== "%") {
                 exText = exText + "*"
                 IsExTextHasStar = false;
             }
         }
         
         if(reText !== "") {
-            if(reText.charAt(0) !== "*" && reText.charAt(0) !== "+" && reText.charAt(0) !== "-" && reText.charAt(0) !== "/" && reText.charAt(0) !== "(" && reText.charAt(0) !== ")" && reText.charAt(0) !== "%") {
+            if(reText.charAt(0) !== "*" && reText.charAt(0) !== "+" && reText.charAt(0) !== "-" && reText.charAt(0) !== "/" && reText.charAt(0) !== ")" && reText.charAt(0) !== "%") {
                 reText = "*" + reText;
                 IsReTextHasStar = false;
             }        
@@ -64,7 +69,7 @@ function buttonClicked(ele) {
 
 // Actual function to perform calculator functionality
 function calculation(val) {
-    var patt = new RegExp("[*/%-+()]");
+    let patt = new RegExp("[*/%-+()]");
     if(patt.test(val)) {
         $("#result").val("Found calc charecters");
     }
@@ -72,7 +77,7 @@ function calculation(val) {
 
 // filters out unwanted keys other than keys used in calculator
 function validCalculatorKeys(e) {
-    return (e.keyCode === 48 || ((e.keyCode === 49 || e.keyCode === 50 || e.keyCode === 51 || e.keyCode === 52 || e.keyCode === 54 || e.keyCode === 55) && !e.shiftKey) || e.keyCode === 56 || e.keyCode === 53 || e.keyCode === 57 || (e.shiftKey && e.keyCode === 187) || e.keyCode === 107 || e.keyCode === 109 || e.keyCode === 106 || e.keyCode === 111 || e.keyCode === 8 || e.keyCode === 96 || e.keyCode === 97 || e.keyCode === 98 || e.keyCode === 99 || e.keyCode === 100 || e.keyCode === 101 || e.keyCode === 102 || e.keyCode === 103 || e.keyCode === 104 || e.keyCode === 105 || (!e.shiftKey && e.keyCode === 189) || e.keyCode === 37 || e.keyCode === 39 || e.keyCode === 110 || (!e.shiftKey && e.keyCode === 190));
+    return (e.keyCode === 48 || ((e.keyCode === 49 || e.keyCode === 50 || e.keyCode === 51 || e.keyCode === 52 || e.keyCode === 54 || e.keyCode === 55) && !e.shiftKey) || e.keyCode === 56 || e.keyCode === 53 || e.keyCode === 57 || (e.shiftKey && e.keyCode === 187) || e.keyCode === 107 || e.keyCode === 109 || e.keyCode === 106 || e.keyCode === 111 || e.keyCode === 8 || e.keyCode === 96 || e.keyCode === 97 || e.keyCode === 98 || e.keyCode === 99 || e.keyCode === 100 || e.keyCode === 101 || e.keyCode === 102 || e.keyCode === 103 || e.keyCode === 104 || e.keyCode === 105 || (!e.shiftKey && e.keyCode === 189) || e.keyCode === 37 || e.keyCode === 39 || e.keyCode === 110 || (!e.shiftKey && e.keyCode === 190) || e.keyCode === 46 || (!e.shiftKey && e.keyCode === 191));
 }
 
 // clears the input field
@@ -81,24 +86,24 @@ function clearKeyPressed() {
 }
 
 function addition() {
-    var sum = 0;
-    for(var i=0; i<arguments.length; i++) {
+    let sum = 0;
+    for(let i=0; i<arguments.length; i++) {
         sum = sum + arguments[i];
     }
     return sum;
 }
 
 function subraction() {
-    var sub = arguments[0];
-    for(var i=1; i<arguments.length; i++) {
+    let sub = arguments[0];
+    for(let i=1; i<arguments.length; i++) {
         sub = sub - arguments[i];
     }
     return sub;
 }
 
 function multiplication() {
-    var mul = arguments[0];
-    for(var i = 1; i < arguments.length; i++) {
+    let mul = arguments[0];
+    for(let i = 1; i < arguments.length; i++) {
         mul = mul * arguments[i];
     }
     return mul;
