@@ -15,33 +15,59 @@ function keyPressed(element, e) {
 function buttonClicked(ele) {
     $("#result").focus();
     var pos = getCursorPosition("result");
-    
+    if(pos.start === pos.end) {
+        pos = pos.start;
+    } else {
+        $("#result").val($("#result").val().slice(0,pos.start)+$("#result").val().slice(pos.end,$("#result").val().length));
+        pos = pos.start;
+    }
     var calcInput = $("#result").val();
     
     var exText = calcInput.slice(0,pos);
     var reText = calcInput.slice(pos,calcInput.length);
     
+    let IsExTextHasStar = true;
+    let IsReTextHasStar = true;
+    
     // adds * when user selects parenthesis 
     if($(ele).val() === "()") {
-        exText = exText + "*";
+        if(exText !== "") {
+            if(exText.charAt(pos-1) !== "*" && exText.charAt(pos-1) !== "+" && exText.charAt(pos-1) !== "-" && exText.charAt(pos-1) !== "/" && exText.charAt(pos-1) !== "(" && exText.charAt(pos-1) !== ")" && exText.charAt(pos-1) !== "%") {
+                exText = exText + "*"
+                IsExTextHasStar = false;
+            }
+        }
+        
         if(reText !== "") {
-            reText = "*" + reText; 
+            if(reText.charAt(0) !== "*" && reText.charAt(0) !== "+" && reText.charAt(0) !== "-" && reText.charAt(0) !== "/" && reText.charAt(0) !== "(" && reText.charAt(0) !== ")" && reText.charAt(0) !== "%") {
+                reText = "*" + reText;
+                IsReTextHasStar = false;
+            }        
         }
     }
     
     $("#result").val(exText+$(ele).val()+reText);
     
     // sets the cursor position, only if the caret position is not at index 0
-    if(pos !== 0) {
+    if(pos !== 0 && $(ele).val() !== "()") {
         if(pos+1 !== $("#result").val().length) { 
-            ($(ele).val() === "()")?setCursorPosition("result", pos+2):setCursorPosition("result", pos+1);
+            setCursorPosition("result", pos+1);
+        }
+    } else {
+        if((IsExTextHasStar && IsReTextHasStar) ||(IsExTextHasStar && !IsReTextHasStar)) {
+            setCursorPosition("result", pos+1);
+        } else {
+            setCursorPosition("result", pos+2);
         }
     }
 }
 
 // Actual function to perform calculator functionality
-function calculation(ele) {
-    
+function calculation(val) {
+    var patt = new RegExp("[*/%-+()]");
+    if(patt.test(val)) {
+        $("#result").val("Found calc charecters");
+    }
 }
 
 // filters out unwanted keys other than keys used in calculator
@@ -51,7 +77,7 @@ function validCalculatorKeys(e) {
 
 // clears the input field
 function clearKeyPressed() {
-    $("#result").val("");
+    $("#result").val("").focus();
 }
 
 function addition() {
@@ -91,10 +117,10 @@ function removeOneCharacter(val) {
 }
 
 // Parameter: element id 
-// Return: the cursor position (actual integer number) or -999 if text is selected 
+// Return: object with caret starting and ending position
 function getCursorPosition(ele) {
     ele = document.getElementById(ele);
-    return (ele.selectionStart === ele.selectionEnd)?ele.selectionStart:-999;
+    return {"start":ele.selectionStart, "end":ele.selectionEnd};
 }
 
 // Parameters: element id and cursor position
