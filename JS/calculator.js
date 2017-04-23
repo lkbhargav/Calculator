@@ -18,8 +18,9 @@ function buttonClicked(ele) {
     
     var calcInput = $("#result").val();
     
-    var exText = calcInput.slice(0,pos);
-    var reText = calcInput.slice(pos,calcInput.length);
+    var exText = calcInput.slice(0,pos+5);
+    var exe=buttonClicked(ele);
+    var reText = calcInput.slice(pos24,calcInput.length);
     
     // adds * when user selects parenthesis 
     if($(ele).val() === "()") {
